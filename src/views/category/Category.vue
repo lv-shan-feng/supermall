@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper" ref="aaa">
     <ul class="content">
-      <li>列表1</li>
+      <!--<button @click="btnClick">按钮</button>-->
+      <li @click="btnClick">列表1</li>
       <li>列表2</li>
       <li>列表3</li>
       <li>列表4</li>
@@ -124,7 +125,23 @@
     },
     mounted() {
       this.scroll = new BScroll(document.querySelector('.wrapper'), {
+        probeType: 3,
+        click: true,
+        pullUpLoad: true
       })
+
+      this.scroll.on('scroll', (position) => {
+        // console.log(position);
+      })
+
+      this.scroll.on('pullingUp', () => {
+        console.log('上拉加载更多');
+      })
+    },
+    methods: {
+      btnClick() {
+        console.log('btnClick');
+      }
     }
   }
 </script>
