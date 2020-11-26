@@ -9,7 +9,7 @@
     name: "BackTop",
     methods: {
       backClick() {
-
+        // this.$emit('backTop');
       }
     }
   }

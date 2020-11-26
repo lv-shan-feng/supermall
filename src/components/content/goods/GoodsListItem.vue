@@ -1,5 +1,5 @@
 <template>
-    <div class="goods-item">
+    <div class="goods-item" @click="itemClick">
       <img :src="goodsItem.show.img" alt="" @click="imageLoad">
       <div class="goods-info">
         <p>{{goodsItem.title}}</p>
@@ -23,6 +23,15 @@
     methods: {
       imageLoad() {
         this.$bus.$emit('itemImageLoad')
+      },
+      itemClick() {
+        this.$router.push('/detail/' + this.goodsItem.iid)
+        /*路由传参的两种方式：1 通过动态传参，2通过下面的query传参
+        this.$router.push({
+          path: '/detail',
+          query: {}
+        })*/
+
       }
     }
   }

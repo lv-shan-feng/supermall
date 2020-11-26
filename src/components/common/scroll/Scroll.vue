@@ -1,6 +1,6 @@
 <template>
   <div ref="wrapper">
-    <slot></slot>
+    <div class="content"> <slot></slot></div>
   </div>
 </template>
 
@@ -66,6 +66,9 @@
       },
       scrollTo(x, y, time) {
         this.scroll && this.scroll.scrollTo && this.scroll.scrollTo(x, y, time)
+      },
+      getScrollY() {
+        return this.scroll ? this.scroll.y : 0;
       }
     },
     watch: {
