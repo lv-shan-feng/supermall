@@ -1,5 +1,15 @@
 <template>
   <div>
+    <div id="outer" @click.capture="log('outer-capture')" @click="log('outer')">
+      outer
+      <div id="middle" @click.stop="log('middle')">
+        middle
+        <div id="inner" @click="log('inner')" @click.capture="log('inner')">
+          inner
+        </div>
+      </div>
+    </div>
+
     <scroll class="content">
       <ul>
         <li>个人信息1</li>
@@ -114,7 +124,13 @@
     name: "Profile",
     components: {
       Scroll
+    },
+    methods: {
+      log(str) {
+        console.log(str)
+      }
     }
+
   }
 </script>
 

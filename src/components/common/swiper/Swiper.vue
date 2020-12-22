@@ -53,7 +53,7 @@
 
           // 2.开始定时器
           this.startTimer();
-        }, 100)
+        }, 500)
       },
       methods: {
         /*
