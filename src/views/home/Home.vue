@@ -6,7 +6,6 @@
                    :titles="['流行', '新款', '精选']"
                    @tabClick="tabClick"
                    class="tab-control" v-show="isTabFixed" />
-
       <scroll class="content"
               ref="scroll"
               :probe-type="3"
